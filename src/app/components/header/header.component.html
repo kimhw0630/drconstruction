@@ -1,0 +1,22 @@
+<header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-gray-200/80 dark:border-gray-700/80 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm px-4 sm:px-8 lg:px-16 py-3">
+  <a routerLink="/home" class="flex items-center gap-1 text-text-light dark:text-text-dark cursor-pointer">
+    <div class="flex items-center">
+      <img src="/images/pixelcut-export.png" alt="DRConstruction Logo" class="h-12 w-auto object-contain">
+    </div>
+    <div class="logo-text">
+        <div class="logo-text-top">DR Construction</div>
+        <div class="logo-text-bottom">Do it Right. Build it Right.</div>
+    </div>
+    <!-- <h2 class="text-lg font-bold leading-tight tracking-[-0.015em] logo-text">DRConstruction</h2> -->
+  </a>
+  <div class="hidden md:flex flex-1 justify-center items-center gap-9">
+    <button class="text-sm font-medium leading-normal hover:text-secondary dark:hover:text-secondary cursor-pointer" (click)="navigateToSection('services')">Services</button>
+    <button class="text-sm font-medium leading-normal hover:text-secondary dark:hover:text-secondary cursor-pointer" (click)="navigateToSection('portfolio')">Portfolio</button>
+    <button class="text-sm font-medium leading-normal hover:text-secondary dark:hover:text-secondary cursor-pointer" (click)="navigateToSection('about')">About Us</button>
+  </div>
+  <div class="flex items-center">
+    <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-secondary text-primary text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity" (click)="navigateToContact()">
+      <span class="truncate">Request a Consultation</span>
+    </button>
+  </div>
+</header>

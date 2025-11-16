@@ -1,0 +1,44 @@
+<!doctype html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>DRConstruction - Transforming Spaces, Building Dreams</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#1A3A5F",
+            "secondary": "#D4AF37",
+            "background-light": "#F4F4F4",
+            "background-dark": "#101922",
+            "text-light": "#333333",
+            "text-dark": "#E0E0E0",
+            "text-muted-light": "#617589",
+            "text-muted-dark": "#98A2B3",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark">
+  <app-root></app-root>
+</body>
+</html>
