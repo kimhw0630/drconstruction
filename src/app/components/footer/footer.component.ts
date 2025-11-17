@@ -11,7 +11,7 @@ export class FooterComponent {
 
   constructor(private router: Router) {}
 
-  navigateToSection(sectionId: string): void {
+  scrollToSection(sectionId: string): void {
     this.router.navigate(['/home'], { fragment: sectionId }).then(() => {
       setTimeout(() => {
         const element = document.getElementById(sectionId);

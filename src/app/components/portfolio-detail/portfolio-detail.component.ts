@@ -91,7 +91,14 @@ export class PortfolioDetailComponent implements OnInit {
   }
 
   goBack(): void {
-    this.location.back();
+    this.router.navigate(['/home'], { fragment: 'portfolio' }).then(() => {
+      setTimeout(() => {
+        const element = document.getElementById('portfolio');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    });
   }
 
   selectImage(image: string): void {
