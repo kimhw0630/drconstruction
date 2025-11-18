@@ -7,16 +7,144 @@
         <div class="logo-text-top">DR Construction</div>
         <div class="logo-text-bottom">Do it Right. Build it Right.</div>
     </div>
-    <!-- <h2 class="text-lg font-bold leading-tight tracking-[-0.015em] logo-text">DRConstruction</h2> -->
   </a>
+  
+  <!-- Desktop Navigation -->
   <div class="hidden md:flex flex-1 justify-center items-center gap-9">
-    <button class="text-sm font-medium leading-normal hover:text-secondary dark:hover:text-secondary cursor-pointer" (click)="scrollToSection('services')">Services</button>
-    <button class="text-sm font-medium leading-normal hover:text-secondary dark:hover:text-secondary cursor-pointer" (click)="scrollToSection('portfolio')">Portfolio</button>
-    <button class="text-sm font-medium leading-normal hover:text-secondary dark:hover:text-secondary cursor-pointer" (click)="scrollToSection('about')">About Us</button>
+    <button class="text-sm font-medium leading-normal hover:text-secondary dark:hover:text-secondary cursor-pointer" (click)="scrollToSection('services')">{{ 'header.services' | translate }}</button>
+    <button class="text-sm font-medium leading-normal hover:text-secondary dark:hover:text-secondary cursor-pointer" (click)="scrollToSection('portfolio')">{{ 'header.portfolio' | translate }}</button>
+    <button class="text-sm font-medium leading-normal hover:text-secondary dark:hover:text-secondary cursor-pointer" (click)="scrollToSection('about')">{{ 'header.about' | translate }}</button>
   </div>
-  <div class="flex items-center">
+  
+  <!-- Desktop Right Side -->
+  <div class="hidden md:flex items-center gap-4">
+    <!-- Language Selector -->
+    <div class="relative">
+      <button 
+        class="flex items-center gap-2 px-3 py-2 text-sm font-medium text-text-light dark:text-text-dark hover:text-secondary dark:hover:text-secondary transition-colors"
+        (click)="toggleLanguageDropdown()">
+        <span>{{ getCurrentLanguage() === 'en' ? '🇺🇸' : '🇰🇷' }}</span>
+        <span>{{ getCurrentLanguage() === 'en' ? 'EN' : 'KO' }}</span>
+        <svg class="w-4 h-4 transition-transform" [class.rotate-180]="isLanguageDropdownOpen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div class="absolute right-0 top-full mt-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg transition-all duration-200 z-50" 
+           [class.opacity-0]="!isLanguageDropdownOpen"
+           [class.opacity-100]="isLanguageDropdownOpen"
+           [class.invisible]="!isLanguageDropdownOpen"
+           [class.visible]="isLanguageDropdownOpen">
+        <div class="py-2 min-w-[120px]">
+          <button 
+            *ngFor="let lang of languages" 
+            (click)="changeLanguage(lang.code)"
+            class="flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            [class.bg-gray-100]="getCurrentLanguage() === lang.code"
+            [class.dark:bg-gray-700]="getCurrentLanguage() === lang.code">
+            <span>{{ lang.flag }}</span>
+            <span>{{ lang.name }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    
     <button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 px-4 bg-secondary text-primary text-sm font-bold leading-normal tracking-[0.015em] hover:opacity-90 transition-opacity" (click)="navigateToContact()">
-      <span class="truncate">Contact Us</span>
+      <span class="truncate">{{ 'header.contact' | translate }}</span>
     </button>
+  </div>
+
+  <!-- Mobile Right Side -->
+  <div class="flex md:hidden items-center gap-4">
+    <!-- Mobile Language Selector -->
+    <div class="relative">
+      <button 
+        class="flex items-center gap-2 px-2 py-2 text-sm font-medium text-text-light dark:text-text-dark hover:text-secondary dark:hover:text-secondary transition-colors"
+        (click)="toggleLanguageDropdown()">
+        <span>{{ getCurrentLanguage() === 'en' ? '🇺🇸' : '🇰🇷' }}</span>
+        <span>{{ getCurrentLanguage() === 'en' ? 'EN' : 'KO' }}</span>
+        <svg class="w-4 h-4 transition-transform" [class.rotate-180]="isLanguageDropdownOpen" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+        </svg>
+      </button>
+      <div class="absolute right-0 top-full mt-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg transition-all duration-200 z-50" 
+           [class.opacity-0]="!isLanguageDropdownOpen"
+           [class.opacity-100]="isLanguageDropdownOpen"
+           [class.invisible]="!isLanguageDropdownOpen"
+           [class.visible]="isLanguageDropdownOpen">
+        <div class="py-2 min-w-[120px]">
+          <button 
+            *ngFor="let lang of languages" 
+            (click)="changeLanguage(lang.code)"
+            class="flex items-center gap-2 w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            [class.bg-gray-100]="getCurrentLanguage() === lang.code"
+            [class.dark:bg-gray-700]="getCurrentLanguage() === lang.code">
+            <span>{{ lang.flag }}</span>
+            <span>{{ lang.name }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hamburger Menu Button -->
+    <button 
+      class="flex flex-col items-center justify-center w-8 h-8 text-text-light dark:text-text-dark hover:text-secondary transition-colors"
+      (click)="toggleMobileMenu()"
+      [attr.aria-expanded]="isMobileMenuOpen"
+      aria-label="Toggle navigation menu">
+      <span class="block w-6 h-0.5 bg-current transition-all duration-300" [class.rotate-45]="isMobileMenuOpen" [class.translate-y-2]="isMobileMenuOpen"></span>
+      <span class="block w-6 h-0.5 bg-current mt-1.5 transition-all duration-300" [class.opacity-0]="isMobileMenuOpen"></span>
+      <span class="block w-6 h-0.5 bg-current mt-1.5 transition-all duration-300" [class.-rotate-45]="isMobileMenuOpen" [class.-translate-y-2]="isMobileMenuOpen"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div 
+    class="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden transition-opacity duration-300"
+    [class.opacity-0]="!isMobileMenuOpen"
+    [class.opacity-100]="isMobileMenuOpen"
+    [class.pointer-events-none]="!isMobileMenuOpen"
+    (click)="closeMobileMenu()">
+  </div>
+
+  <!-- Mobile Menu -->
+  <div 
+    class="fixed top-0 right-0 h-full w-64 bg-white dark:bg-gray-900 shadow-xl border-l border-gray-200 dark:border-gray-700 z-50 md:hidden transform transition-transform duration-300"
+    [class.translate-x-full]="!isMobileMenuOpen"
+    [class.translate-x-0]="isMobileMenuOpen">
+    <div class="flex flex-col h-full">
+      <!-- Mobile Menu Header -->
+      <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
+        <span class="text-lg font-semibold text-text-light dark:text-text-dark">Menu</span>
+        <button 
+          class="p-2 text-text-light dark:text-text-dark hover:text-secondary transition-colors"
+          (click)="closeMobileMenu()"
+          aria-label="Close menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Mobile Menu Items -->
+      <nav class="flex-1 px-4 py-6 bg-white dark:bg-gray-900">
+        <div class="space-y-4 bg-white dark:bg-gray-900">
+          <button 
+            class="flex items-center w-full px-4 py-3 text-left text-text-light dark:text-text-dark bg-white dark:bg-gray-900 hover:text-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+            (click)="scrollToSection('services'); closeMobileMenu()">
+            {{ 'header.services' | translate }}
+          </button>
+          <button 
+            class="flex items-center w-full px-4 py-3 text-left text-text-light dark:text-text-dark bg-white dark:bg-gray-900 hover:text-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+            (click)="scrollToSection('portfolio'); closeMobileMenu()">
+            {{ 'header.portfolio' | translate }}
+          </button>
+          <button 
+            class="flex items-center w-full px-4 py-3 text-left text-text-light dark:text-text-dark bg-white dark:bg-gray-900 hover:text-secondary hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+            (click)="scrollToSection('about'); closeMobileMenu()">
+            {{ 'header.about' | translate }}
+          </button>
+        </div>
+      </nav>
+    </div>
   </div>
 </header>

@@ -1,0 +1,121 @@
+{
+  "header": {
+    "logoText": "DR Construction",
+    "logoSubtext": "Do it Right. Build it Right.",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "About Us",
+    "contact": "Contact Us"
+  },
+  "hero": {
+    "title": "Transforming Spaces,",
+    "titleHighlight": "Building Dreams",
+    "subtitle": "Expert renovations for commercial, family, and real estate properties.",
+    "getStarted": "Schedule Your Free Consultation"
+  },
+  "services": {
+    "title": "Spaces Reimagined. Quality Redefined",
+    "commercial": {
+      "title": "Commercial Spaces That Work Smarter",
+      "description": "We specialize in elevating your business environment with functional and modern designs. From office fit-outs to retail space transformations, our team delivers high-quality workmanship that reflects your brand's excellence and enhances productivity."
+    },
+    "residential": {
+      "title": "Home Makeovers & Modern Living",
+      "description": "From kitchens and basement to full-home makeovers, we turn your renovation ideas into reality. Our focus is on quality craftsmanship, modern design, and attention to detail that fits your lifestyle. Whether you are upgrading your home for comfort or adding value for the future, we make the process simple and stress-free from start to finish."
+    },
+    "realEstate": {
+      "title": "Real Estate Upgrades That Add Value",
+      "description": "We help you maximize property value with strategic and high-return upgrades. Our expertise in market trends allows us to recommend and execute renovations that significantly boost resale value and attract high-quality tenants."
+    }
+  },
+  "process": {
+    "title": "We Take Care of Everything",
+    "consultation": {
+      "title": "Planning & Consultation",
+      "description": "We start by understanding your vision and requirements, ensuring every detail is mapped out for a seamless project execution."
+    },
+    "design": {
+      "title": "Design & Preparation",
+      "description": "Our team creates detailed designs and prepares the site, focusing on material selection and logistical planning to bring your ideas to life."
+    },
+    "execution": {
+      "title": "Construction & Completion",
+      "description": "With precision and care, our builders execute the construction, culminating in a final walkthrough to ensure perfection and your total satisfaction."
+    }
+  },
+  "portfolio": {
+    "title": "Transformations We're Proud Of",
+    "subtitle": "Explore our craftsmanship and envision the possibilities for your space",
+    "projects": {
+      "kitchenRemodel": {
+        "title": "Modern Kitchen Remodel",
+        "category": "Residential",
+        "description": "A complete kitchen transformation featuring custom dark wood cabinetry, premium quartz countertops, and high-end stainless steel appliances. This modern design maximizes both functionality and style."
+      },
+      "livingRoom": {
+        "title": "Living Room Update",
+        "category": "Family Home",
+        "description": "A bright and airy living room renovation with sophisticated neutral color palette, modern furniture, and carefully curated art pieces that create a perfect balance of comfort and elegance."
+      },
+      "office": {
+        "title": "Office Space Redesign",
+        "category": "Commercial",
+        "description": "A high-tech collaborative office space designed for maximum productivity, featuring ergonomic workstations, modern art installations, and strategic natural lighting to create an inspiring work environment."
+      },
+      "basement": {
+        "title": "Basement Renovation",
+        "category": "Family Home",
+        "description": "Transform your basement into the ultimate entertainment space with a cozy home theater system, comfortable seating, and ambient lighting perfect for family movie nights."
+      },
+      "screenGolf": {
+        "title": "Screen Golf Setup",
+        "category": "Commercial",
+        "description": "A state-of-the-art indoor screen golf facility featuring high-tech simulation systems, premium equipment, and professional-grade setup for the ultimate golfing experience."
+      },
+      "restaurant": {
+        "title": "Restaurant Renovation",
+        "category": "Commercial",
+        "description": "A complete restaurant transformation with stylish modern interior design, ambient lighting systems, and chic decor that creates the perfect dining atmosphere for guests."
+      }
+    },
+    "viewProject": "View Project",
+    "backToPortfolio": "Back to Portfolio",
+    "projectGallery": "Project Gallery"
+  },
+  "contact": {
+    "title": "Let's Build Something Amazing Together",
+    "subtitle": "Ready to transform your space? Get in touch with us today.",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "phoneNumber": "(416) 708-8098",
+    "emailAddress": "contact@drconstruction.com",
+    "fullAddress": "123 Renovation Ave, Buildtown, ST 12345",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email", 
+      "subject": "Subject",
+      "message": "Your Message",
+      "send": "Send Message"
+    }
+  },
+  "footer": {
+    "description": "Your trusted partner in transforming spaces and building dreams since 2010.",
+    "quickLinks": "Quick Links",
+    "contact": "Contact",
+    "followUs": "Follow Us",
+    "copyright": "© 2024 DRConstruction. All rights reserved.",
+    "builtWith": "Built with Angular"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous"
+  }
+}

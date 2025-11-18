@@ -1,0 +1,69 @@
+[
+  {
+    "id": "kitchen-remodel",
+    "title": "Modern Kitchen Remodel",
+    "category": "Residential",
+    "mainImage": "images/portfolio/kitchen1.webp",
+    "description": "A complete kitchen transformation featuring custom dark wood cabinetry, premium quartz countertops, and high-end stainless steel appliances. This modern design maximizes both functionality and style.",
+    "gallery": [
+     "images/portfolio/kitchen1.webp",
+      "images/portfolio/kitchen2.webp",
+      "images/portfolio/kitchen3.webp"
+    ]
+  },
+  {
+    "id": "living-room-update",
+    "title": "Living Room Update",
+    "category": "Family Home",
+    "mainImage": "images/portfolio/livingroom.webp",
+    "description": "A bright and airy living room renovation with sophisticated neutral color palette, modern furniture, and carefully curated art pieces that create a perfect balance of comfort and elegance.",
+    "gallery": [
+      "images/portfolio/livingroom.webp",
+      "images/portfolio/livingroom2.webp",
+      "images/portfolio/livingroom3.webp"
+    ]
+  },
+  {
+    "id": "office-redesign",
+    "title": "Office Space Redesign",
+    "category": "Commercial",
+    "mainImage": "images/portfolio/office.webp",
+    "description": "A high-tech collaborative office space designed for maximum productivity, featuring ergonomic workstations, modern art installations, and strategic natural lighting to create an inspiring work environment.",
+    "gallery": [
+      "images/portfolio/office.webp",
+      "images/portfolio/office2.webp"
+    ]
+  },
+  {
+    "id": "basement-renovation",
+    "title": "Basement Renovation",
+    "category": "Family Home",
+    "mainImage": "images/portfolio/basement.webp",
+    "description": "Transform your basement into the ultimate entertainment space with a cozy home theater system, comfortable seating, and ambient lighting perfect for family movie nights.",
+    "gallery": [
+      "images/portfolio/basement.webp",
+      "images/portfolio/basement2.webp",
+      "images/portfolio/basement3.webp"
+    ]
+  },
+  {
+    "id": "screen-golf-setup",
+    "title": "Screen Golf Setup",
+    "category": "Commercial",
+    "mainImage": "images/portfolio/screengolf.webp",
+    "description": "A state-of-the-art indoor screen golf facility featuring high-tech simulation systems, premium equipment, and professional-grade setup for the ultimate golfing experience.",
+    "gallery": [
+      "images/portfolio/screengolf.webp"
+    ]
+  },
+  {
+    "id": "restaurant-renovation",
+    "title": "Restaurant Renovation",
+    "category": "Commercial",
+    "mainImage": "images/portfolio/restaurant.webp",
+    "description": "A complete restaurant transformation with stylish modern interior design, ambient lighting systems, and chic decor that creates the perfect dining atmosphere for guests.",
+    "gallery": [
+      "images/portfolio/restaurant.webp"
+    ]
+  }
+]

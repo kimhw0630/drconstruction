@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TranslationService } from './services/translation.service';
 
 @Component({
   selector: 'app-root',
@@ -6,8 +7,15 @@ import { Component } from '@angular/core';
   standalone: false,
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'DRConstruction';
+
+  constructor(private translationService: TranslationService) {}
+
+  ngOnInit() {
+    // Initialize translations with default language
+    this.translationService.setLanguage('en');
+  }
   
   onSubmitConsultation(event: Event) {
     event.preventDefault();

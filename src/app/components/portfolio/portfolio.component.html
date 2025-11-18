@@ -1,58 +1,20 @@
 <section id="portfolio" class="w-full py-16 sm:py-24 px-4 sm:px-8 lg:px-16">
   <div class="max-w-6xl mx-auto">
-    <h2 class="text-3xl font-bold leading-tight tracking-[-0.015em] text-center mb-4">Transformations We're Proud Of</h2>
-    <p class="text-center text-text-muted-light dark:text-text-muted-dark mb-12">Explore our craftsmanship and envision the possibilities for your space.</p>
+    <h2 class="text-3xl font-bold leading-tight tracking-[-0.015em] text-center mb-4">{{ 'portfolio.title' | translate }}</h2>
+    <p class="text-center text-text-muted-light dark:text-text-muted-dark mb-12">{{ 'portfolio.subtitle' | translate }}</p>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <div class="group relative overflow-hidden rounded-xl cursor-pointer" (click)="navigateToPortfolio('kitchen-remodel')">
-        <img class="h-80 w-full object-cover transition-transform duration-300 group-hover:scale-105" alt="A gourmet kitchen featuring custom dark wood cabinetry, a large white quartz island, high-end stainless steel appliances, and sleek pendant lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbeeTqcxyCdH9u6uz_3u1lxtF-SN21bgpWn8xBY6_Ianvxc3_pCrfHvYBz3d8jGZ_VqFPAjs95cdWqSm-Vb9aZWu3IZrNN6aFYxYJ0lwDZ3_leeyNsp8JdlVsK_dNFrFCxP8cQPIAPTQOYfchmFvMsUw9yAu66kTjRRUFH1jQzmU15Gr3NCIdKb_dySbI7HRngh-pxJJRP2mOvtIxYjL1BHmnwl848OxdVWfKgckw-wqemqTfOyf2gumd9UABYAG70E8CTeksL-DOX"/>
+      <div 
+        *ngFor="let item of portfolioItems" 
+        class="group relative overflow-hidden rounded-xl cursor-pointer" 
+        (click)="navigateToPortfolio(item.id)">
+        <img 
+          class="h-80 w-full object-cover transition-transform duration-300 group-hover:scale-105" 
+          [alt]="item.title" 
+          [src]="item.mainImage"/>
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
         <div class="absolute bottom-0 left-0 p-6">
-          <h3 class="text-white text-xl font-bold">Modern Kitchen Remodel</h3>
-          <p class="text-gray-200 text-sm">Residential</p>
-        </div>
-      </div>
-      <div class="group relative overflow-hidden rounded-xl cursor-pointer" (click)="navigateToPortfolio('living-room-update')">
-        <img class="h-80 w-full object-cover transition-transform duration-300 group-hover:scale-105" alt="A bright and airy living room with a sophisticated neutral color palette, plush sofa, abstract art, and minimalist decor, exuding comfort and style." src="images/portfolio/livingroom.webp"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 p-6">
-          <h3 class="text-white text-xl font-bold">Living Room Update</h3>
-          <p class="text-gray-200 text-sm">Family Home</p>
-        </div>
-      </div>
-      <div class="group relative overflow-hidden rounded-xl cursor-pointer" (click)="navigateToPortfolio('office-redesign')">
-        <img class="h-80 w-full object-cover transition-transform duration-300 group-hover:scale-105" alt="A high-tech, collaborative office space with ergonomic workstations, modern art, and strategic natural light, designed for peak productivity and aesthetics." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmLprABA-2kSjsMf25x0x3G7G4mjpjjgIMlj8nxOaRiDTUK8WZMolc8GE-Q6KCHDdofzxasmyM5K0l9zz9tsXjFrhcbGAPHAAxdKQUgHgzjuHNGMUmDhMD8XdNfpxOXq7I1kKM1PwZsWIVcXjkhb9z-fyJDNfudDwXz1CzBeQms3yJznTB7_VdhVZtfs7BC6PrS0bmOdVd5OgiAtOLhBevT_DS4BTwmBAZN0-xA6c0DxpERhsNquetRP3hWMr5e3NqhHwPbtO-wg4F"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 p-6">
-          <h3 class="text-white text-xl font-bold">Office Space Redesign</h3>
-          <p class="text-gray-200 text-sm">Commercial</p>
-        </div>
-      </div>
-
-      <!-- New Portfolio Items from code4.html -->
-      <div class="group relative overflow-hidden rounded-xl cursor-pointer" (click)="navigateToPortfolio('basement-renovation')">
-        <img class="h-80 w-full object-cover transition-transform duration-300 group-hover:scale-105" alt="A cozy, finished basement with a home theater system and comfortable seating." src="images/portfolio/basement.webp"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 p-6">
-          <h3 class="text-white text-xl font-bold">Basement Renovation</h3>
-          <p class="text-gray-200 text-sm">Family Home</p>
-        </div>
-      </div>
-
-      <div class="group relative overflow-hidden rounded-xl cursor-pointer" (click)="navigateToPortfolio('screen-golf-setup')">
-        <img class="h-80 w-full object-cover transition-transform duration-300 group-hover:scale-105" alt="A high-tech indoor screen golf setup in a commercial entertainment venue." src="images/portfolio/screengolf.webp"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 p-6">
-          <h3 class="text-white text-xl font-bold">Screen Golf Setup</h3>
-          <p class="text-gray-200 text-sm">Commercial</p>
-        </div>
-      </div>
-
-      <div class="group relative overflow-hidden rounded-xl cursor-pointer" (click)="navigateToPortfolio('restaurant-renovation')">
-        <img class="h-80 w-full object-cover transition-transform duration-300 group-hover:scale-105" alt="A stylish and modern restaurant interior with ambient lighting and chic decor." src="images/portfolio/restaurant.webp"/>
-        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-        <div class="absolute bottom-0 left-0 p-6">
-          <h3 class="text-white text-xl font-bold">Restaurant Renovation</h3>
-          <p class="text-gray-200 text-sm">Commercial</p>
+          <h3 class="text-white text-xl font-bold">{{ item.title }}</h3>
+          <p class="text-gray-200 text-sm">{{ item.category }}</p>
         </div>
       </div>
     </div>

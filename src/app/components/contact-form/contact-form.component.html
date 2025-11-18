@@ -2,17 +2,17 @@
   <div class="max-w-4xl mx-auto">
     <div class="grid md:grid-cols-2 gap-12 items-center bg-primary text-white rounded-xl p-8 md:p-12">
       <div class="flex flex-col gap-4">
-        <h2 class="text-3xl font-bold leading-tight tracking-[-0.015em]">Ready to Start Your Project?</h2>
-        <p class="text-gray-200"> We proudly serve clients across Ontario, Canada  from home upgrades to commercial renovations and real estate improvements. Our team is ready to bring your vision to life with quality, reliability, and care. </p>
+        <h2 class="text-3xl font-bold leading-tight tracking-[-0.015em]">{{ 'contact.title' | translate }}</h2>
+        <p class="text-gray-200">{{ 'contact.subtitle' | translate }}</p>
       </div>
       <div class="flex flex-col gap-6">
-        <div class="text-lg font-semibold">Contact Us Today</div>
+        <div class="text-lg font-semibold">{{ 'header.contact' | translate }}</div>
         
         <!-- Phone -->
         <div class="flex items-center gap-3">
           <span class="material-symbols-outlined text-secondary" style="font-size: 24px;">phone</span>
           <div>
-            <div class="text-sm text-gray-300">Phone</div>
+            <div class="text-sm text-gray-300">{{ 'contact.phone' | translate }}</div>
             <a href="tel:+1-416-555-0123" class="text-white hover:text-secondary transition-colors font-medium">
               (416) 555-0123
             </a>
@@ -23,7 +23,7 @@
         <div class="flex items-center gap-3">
           <span class="material-symbols-outlined text-secondary" style="font-size: 24px;">email</span>
           <div>
-            <div class="text-sm text-gray-300">Email</div>
+            <div class="text-sm text-gray-300">{{ 'contact.email' | translate }}</div>
             <a href="mailto:contact@drconstruction.com" class="text-white hover:text-secondary transition-colors font-medium">
               contact&#64;drconstruction.com
             </a>
@@ -34,7 +34,7 @@
         <div class="flex items-center gap-3">
           <span class="material-symbols-outlined text-secondary" style="font-size: 24px;">location_on</span>
           <div>
-            <div class="text-sm text-gray-300">Service Area</div>
+            <div class="text-sm text-gray-300">{{ 'contact.address' | translate }}</div>
             <div class="text-white font-medium">
               Greater Toronto Area, Ontario
             </div>
