@@ -15,15 +15,23 @@ export class TranslationService {
   private currentLanguage = new BehaviorSubject<string>('en');
   private translations: { [lang: string]: TranslationData } = {};
   private fallbackLanguage = 'en';
+  private loadingLanguages = new Set<string>();
 
   currentLanguage$ = this.currentLanguage.asObservable();
 
   constructor(private http: HttpClient) {
     // Load saved language from localStorage or default to English
     const savedLang = localStorage.getItem('selectedLanguage') || 'en';
-    // Load initial translations
-    this.loadTranslations(savedLang).subscribe(() => {
-      this.currentLanguage.next(savedLang);
+    
+    // Load initial translations synchronously if possible
+    this.loadTranslations(savedLang).subscribe({
+      next: () => {
+        this.currentLanguage.next(savedLang);
+      },
+      error: () => {
+        // If loading fails, still set the language to prevent blocking
+        this.currentLanguage.next(savedLang);
+      }
     });
   }
 
@@ -38,18 +46,46 @@ export class TranslationService {
     return this.currentLanguage.value;
   }
 
+  isLanguageLoaded(lang: string): boolean {
+    return !!this.translations[lang];
+  }
+
+  // Method to ensure translations are loaded
+  ensureTranslationsLoaded(): Observable<boolean> {
+    const currentLang = this.getCurrentLanguage();
+    if (this.translations[currentLang]) {
+      return of(true);
+    }
+    
+    return this.loadTranslations(currentLang).pipe(
+      map(() => true),
+      catchError(() => of(false))
+    );
+  }
+
   private loadTranslations(lang: string): Observable<TranslationData> {
+    // Return cached translations if already loaded
     if (this.translations[lang]) {
       return of(this.translations[lang]);
     }
 
+    // If already loading this language, return empty for now
+    if (this.loadingLanguages.has(lang)) {
+      return of({});
+    }
+
+    // Mark language as loading
+    this.loadingLanguages.add(lang);
+
     return this.http.get<TranslationData>(`i18n/${lang}.json`).pipe(
       map(translations => {
         this.translations[lang] = translations;
+        this.loadingLanguages.delete(lang);
         return translations;
       }),
       catchError(() => {
         console.warn(`Failed to load translations for language: ${lang}`);
+        this.loadingLanguages.delete(lang);
         // If it's not the fallback language, try to load fallback
         if (lang !== this.fallbackLanguage) {
           return this.loadTranslations(this.fallbackLanguage);
@@ -64,9 +100,17 @@ export class TranslationService {
     
     // Check if translations are loaded for current language
     if (!this.translations[lang]) {
-      console.warn(`Translations not loaded for language: ${lang}, loading key: ${key}`);
-      // Try to load translations if not already loaded
-      this.loadTranslations(lang).subscribe();
+      // If current language is not loaded but fallback is available, use fallback
+      if (lang !== this.fallbackLanguage && this.translations[this.fallbackLanguage]) {
+        const translation = this.getNestedTranslation(this.translations[this.fallbackLanguage], key);
+        return translation || key;
+      }
+      
+      // If neither current nor fallback is loaded, trigger loading for current language
+      if (!this.loadingLanguages.has(lang)) {
+        this.loadTranslations(lang).subscribe();
+      }
+      
       return key; // Return key as placeholder until loaded
     }
     
